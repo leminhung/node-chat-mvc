@@ -1,4 +1,4 @@
-var that = (module.exports = {
+module.exports = {
   homepage: async (req, res, next) => {
     res.sendFile(__basedir + "/index.html");
   },
@@ -8,4 +8,4 @@ var that = (module.exports = {
 
     return res.status(200).json({ msg });
   },
-});
+};

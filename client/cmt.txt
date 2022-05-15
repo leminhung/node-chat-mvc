@@ -1,0 +1,2 @@
+This folder is used to test if user not verified, the hacker can listen conversation
+If the token is hacked => hacker can access your brower & listen conversation 

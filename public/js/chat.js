@@ -4,9 +4,10 @@ var socket = io({
   },
 });
 
+var messages_list = document.getElementById("messages_list");
 var messages = document.getElementById("messages");
-var form = document.getElementById("form");
-var input = document.getElementById("input");
+var form = document.getElementById("chatForm");
+var input = document.getElementById("message");
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -18,11 +19,11 @@ form.addEventListener("submit", function (e) {
 
 socket.on("chat message", function (data) {
   const { name, message, createdAt } = data;
-  console.log(data);
-  var item = document.createElement("li");
-  item.textContent = message;
-  messages.appendChild(item);
-  window.scrollTo(0, document.body.scrollHeight);
+  timer = new Date(createdAt);
+  messages_list.innerHTML =
+    messages_list.innerHTML +
+    `<li><span class="badge badge-primary">${name}</span> <span style="color: gray">${timer.getHours()}:${timer.getMinutes()}:${timer.getSeconds()}</span> <p>${message}</p></li>`;
+  messages.scrollTop = messages.scrollHeight;
 });
 
 socket.on("connect_error", (err) => {

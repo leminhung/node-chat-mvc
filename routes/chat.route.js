@@ -1,8 +1,6 @@
 const express = require("express");
 const route = express.Router();
-const { homepage, message } = require("../controllers/chat.controller");
-
-route.get("/", homepage);
+const { message } = require("../controllers/chat.controller");
 
 route.get("/api/message", message);
 

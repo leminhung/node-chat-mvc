@@ -1,3 +1,4 @@
+const { generateMessage } = require("../utils/message");
 class SocketServices {
   // Socket connection
   connection(socket) {
@@ -6,9 +7,11 @@ class SocketServices {
     });
 
     // Chat message
-    socket.on("chat message", (msg) => {
-      console.log(`With message: ${msg}`);
-      _io.emit("chat message", msg);
+    socket.on("chat message", (message) => {
+      console.log(`With message: ${message}`);
+      _io
+        // .to("123")
+        .emit("chat message", generateMessage({ name: "Hung", message }));
     });
   }
 }

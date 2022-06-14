@@ -1,7 +1,7 @@
 const generateMessage = ({ name, message }) => {
   return {
-    name,
-    message,
+    username: name,
+    text: message,
     createdAt: Date.now(),
   };
 };

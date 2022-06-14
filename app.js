@@ -32,7 +32,7 @@ global._io.use((socket, next) => {
 global._io.on("connection", SocketServices.connection);
 
 app.get("/", (req, res) => {
-  res.render("chat");
+  res.render("index");
 });
 app.use(ChatRouter);
 

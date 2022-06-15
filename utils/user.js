@@ -4,7 +4,6 @@ const addUser = ({ id, username, room }) => {
   username = username.trim().toLowerCase();
   room = room.trim().toLowerCase();
 
-  console.log({ id, username, room });
   if (!username || !room) {
     return {
       error: "Please fill in username or room",
@@ -24,18 +23,16 @@ const addUser = ({ id, username, room }) => {
   return { user };
 };
 
-const getListUsersInRoom = (room) => {
-  const list = users.filter((user) => user.room !== room.trim().toLowerCase());
-  console.log("list-", list);
-  return list;
+const getUsersInRoom = (room) => {
+  return users.filter((user) => user.room === room.trim().toLowerCase());
 };
 
 const getUser = (id) => {
-  return users.find((u) => u.id === id.trim().toLowerCase());
+  return users.find((u) => u.id === id.trim());
 };
 
 const removeUser = (id) => {
-  const index = users.find((u) => u.id === id.trim().toLowerCase());
+  const index = users.findIndex((u) => u.id === id.trim());
   if (index != -1) {
     return users.splice(index, 1)[0];
   }
@@ -45,5 +42,5 @@ module.exports = {
   addUser,
   removeUser,
   getUser,
-  getListUsersInRoom,
+  getUsersInRoom,
 };

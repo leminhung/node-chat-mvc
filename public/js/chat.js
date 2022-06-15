@@ -17,15 +17,6 @@ form.addEventListener("submit", function (e) {
   }
 });
 
-socket.on("chat message", function (data) {
-  const { name, message, createdAt } = data;
-  timer = new Date(createdAt);
-  messages_list.innerHTML =
-    messages_list.innerHTML +
-    `<li><span class="badge badge-primary">${name}</span> <span style="color: gray">${timer.getHours()}:${timer.getMinutes()}:${timer.getSeconds()}</span> <p>${message}</p></li>`;
-  messages.scrollTop = messages.scrollHeight;
-});
-
 const { username, room } = Qs.parse(location.search, {
   ignoreQueryPrefix: true,
 });
@@ -48,7 +39,7 @@ socket.on("roomData", ({ room, data }) => {
   document.getElementById("roomData").innerHTML = roomData;
 });
 
-socket.on("receiveUser", (msg) => {
+socket.on("receiveMsg", (msg) => {
   const { text, createdAt, username } = msg;
   timer = new Date(createdAt);
   messages_list.innerHTML =

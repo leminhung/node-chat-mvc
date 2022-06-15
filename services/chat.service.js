@@ -3,13 +3,27 @@ const {
   addUser,
   removeUser,
   getUser,
-  getListUsersInRoom,
+  getUsersInRoom,
 } = require("../utils/user");
 class SocketServices {
   // Socket connection
   connection(socket) {
     socket.on("disconnect", () => {
-      console.log(`User disconnect with id: ${socket.id}`);
+      const user = removeUser(socket.id);
+
+      if (user) {
+        _io.to(user.room).emit(
+          "receiveMsg",
+          generateMessage({
+            name: "admin",
+            message: `User with name ${user.username} has left this room`,
+          })
+        );
+        _io.to(user.room).emit("roomData", {
+          room: user.room,
+          data: getUsersInRoom(user.room),
+        });
+      }
     });
 
     socket.on("sendWelcome", ({ username, room }, callback) => {
@@ -21,7 +35,7 @@ class SocketServices {
 
       socket.join(user.room);
       socket.broadcast.to(user.room).emit(
-        "receiveUser",
+        "receiveMsg",
         generateMessage({
           name: "admin",
           message: `User with name ${username} has joined this room`,
@@ -30,16 +44,16 @@ class SocketServices {
 
       _io.to(user.room).emit("roomData", {
         room: user.room,
-        data: getListUsersInRoom(user.room),
+        data: getUsersInRoom(user.room),
       });
     });
 
     // Chat message
     socket.on("chat message", (message) => {
-      console.log(`With message: ${message}`);
+      const user = getUser(socket.id);
       _io
-        // .to("123")
-        .emit("chat message", generateMessage({ name: "Hung", message }));
+        .to(user?.room)
+        .emit("receiveMsg", generateMessage({ name: user?.username, message }));
     });
   }
 }

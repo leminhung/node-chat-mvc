@@ -1,15 +1,23 @@
-# chat-example
+# Chatbot Facebook Messager
 
-This is the source code for a very simple chat example used for
-the [Getting Started](http://socket.io/get-started/chat/) guide
-of the Socket.IO website.
+A simple app to chat with friends in specific room, get list of friends in room
 
-Please refer to it to learn how to run this application.
 
-You can also spin up a free Heroku dyno to test it out:
+## Chatbot Get Started
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/socketio/chat-example)
+![Screenshot (4)](https://github.com/leminhung/chatbot-facebook-messenger/blob/master/public/image/get-started.png)
 
-Or run it on [Repl.it](https://repl.it/):
+## Infor the world
 
-[![Run on Repl.it](https://repl.it/badge/github/socketio/chat-example)](https://repl.it/github/socketio/chat-example)
+![Screenshot (4)](https://github.com/leminhung/chatbot-facebook-messenger/blob/master/public/image/World.png)
+
+## Infor in VietNam
+
+![Screenshot (4)](https://github.com/leminhung/chatbot-facebook-messenger/blob/master/public/image/VietNam.jpg)
+
+## Technologies & Libraries Used
+
+1.  NodeJS
+2.  Socketio
+3.  EJS
+

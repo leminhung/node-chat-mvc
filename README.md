@@ -3,17 +3,14 @@
 A simple app to chat with friends in specific room, get list of friends in room
 
 
-## Chatbot Get Started
+## Login page
 
-![Screenshot (4)](https://github.com/leminhung/chatbot-facebook-messenger/blob/master/public/image/get-started.png)
+![Screenshot (4)](https://github.com/leminhung/node-chat-mvc/blob/master/public/images/login.png)
 
-## Infor the world
+## Chat page
 
-![Screenshot (4)](https://github.com/leminhung/chatbot-facebook-messenger/blob/master/public/image/World.png)
+![Screenshot (4)](https://github.com/leminhung/node-chat-mvc/blob/master/public/images/chat_conversation.png)
 
-## Infor in VietNam
-
-![Screenshot (4)](https://github.com/leminhung/chatbot-facebook-messenger/blob/master/public/image/VietNam.jpg)
 
 ## Technologies & Libraries Used
 

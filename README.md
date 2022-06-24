@@ -1,4 +1,4 @@
-# Chatbot Facebook Messager
+# Simple Chat App
 
 A simple app to chat with friends in specific room, get list of friends in room
 

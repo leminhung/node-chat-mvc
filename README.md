@@ -18,6 +18,7 @@ A simple app to chat with friends in specific room, get list of friends in room
 ## Technologies & Libraries Used
 
 1.  NodeJS
-2.  Socketio
-3.  EJS
+2.  Express
+3.  Socketio
+4.  EJS
 
